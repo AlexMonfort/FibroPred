@@ -125,78 +125,78 @@ The performance and feature importance for the prediction targets are detailed b
 
 ##### **Prediction Target: Death**
 
-![Cross-validation Accuracy for Death](Figures/Figure_1.png)
+![Cross-validation Accuracy for Death](figures/Figure_1.png)
 
 - **Cross-validation Accuracy**:
   The cross-validation results for "Death" show some variability across folds, but overall, the model achieves consistently high accuracy.
 
 - **Train vs Test Accuracy**:
-  ![Train vs Test Accuracy for Death](Figures/Figure_2.png)
+  ![Train vs Test Accuracy for Death](figures/Figure_2.png)
 
-![Feature Importance for Death](Figures/Figure_3.png)
+![Feature Importance for Death](figures/Figure_3.png)
 
 - **Feature Importance**:
   Features such as "Progressive disease", "DLCO (%) at diagnosis", and "FVC (%) at diagnosis" are the most influential.
 
-![ROC-AUC Curve for Death](Figures/Figure_4.png)
+![ROC-AUC Curve for Death](figures/Figure_4.png)
 
 - **ROC-AUC Curve**:
   The ROC-AUC curve illustrates strong model performance, with an AUC of 0.92.
 
 ##### **Prediction Target: Binary Diagnosis**
 
-![Cross-validation Accuracy for Binary Diagnosis](Figures/Figure_5.png)
+![Cross-validation Accuracy for Binary Diagnosis](figures/Figure_5.png)
 
 - **Cross-validation Accuracy**:
   Variability in cross-validation accuracy is observed, but the model maintains high performance across most folds.
 
-![Train vs Test Accuracy for Binary Diagnosis](Figures/Figure_6.png)
+![Train vs Test Accuracy for Binary Diagnosis](figures/Figure_6.png)
 
-![Feature Importance for Binary Diagnosis](Figures/Figure_7.png)
+![Feature Importance for Binary Diagnosis](figures/Figure_7.png)
 
 - **Feature Importance**:
   Key predictors include "Age at diagnosis", "Pedigree", and "Tobacco use".
 
-![ROC-AUC Curve for Binary Diagnosis](Figures/Figure_8.png)
+![ROC-AUC Curve for Binary Diagnosis](figures/Figure_8.png)
 
 - **ROC-AUC Curve**:
   The high AUC value of 0.95 indicates excellent discrimination ability.
 
 ##### **Prediction Target: Progressive Disease**
 
-![Cross-validation Accuracy for Progressive Disease](Figures/Figure_9.png)
+![Cross-validation Accuracy for Progressive Disease](figures/Figure_9.png)
 
 - **Cross-validation Accuracy**:
   Accuracy scores across folds highlight variability, but peaks show strong model performance.
 
 - **Train vs Test Accuracy**:
-  ![Train vs Test Accuracy for Progressive Disease](Figures/Figure_10.png)
+  ![Train vs Test Accuracy for Progressive Disease](figures/Figure_10.png)
 
-![Feature Importance for Progressive Disease](Figures/Figure_11.png)
+![Feature Importance for Progressive Disease](figures/Figure_11.png)
 
 - **Feature Importance**:
   "DLCO (%) at diagnosis", "Age at diagnosis", and "Pedigree" emerge as the dominant predictors.
 
-![ROC-AUC Curve for Progressive Disease](Figures/Figure_12.png)
+![ROC-AUC Curve for Progressive Disease](figures/Figure_12.png)
 
 - **ROC-AUC Curve**:
   With an AUC of 0.98, the model demonstrates exceptional predictive power.
 
 ##### **Prediction Target: Necessity of Transplantation**
 
-![Cross-validation Accuracy for Necessity of Transplantation](Figures/Figure_13.png)
+![Cross-validation Accuracy for Necessity of Transplantation](figures/Figure_13.png)
 
 - **Cross-validation Accuracy**:
   Cross-validation reveals excellent model accuracy.
 
-![Train vs Test Accuracy for Necessity of Transplantation](Figures/Figure_14.png)
+![Train vs Test Accuracy for Necessity of Transplantation](figures/Figure_14.png)
 
-![Feature Importance for Necessity of Transplantation](Figures/Figure_15.png)
+![Feature Importance for Necessity of Transplantation](figures/Figure_15.png)
 
 - **Feature Importance**:
   "RadioWorsening2y", "FVC (%) 1 year after diagnosis", and "Comorbidities" are critical.
 
-![ROC-AUC Curve for Necessity of Transplantation](Figures/Figure_16.png)
+![ROC-AUC Curve for Necessity of Transplantation](figures/Figure_16.png)
 
 - **ROC-AUC Curve**:
   The model achieves an AUC of 1.00.
