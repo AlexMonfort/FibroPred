@@ -4,7 +4,6 @@ emoji: "🩺"
 colorFrom: "blue"
 colorTo: "green"
 sdk: "gradio"
-sdk_version: "5.9.1"
 app_file: "app.py"
 datasets:
   - "clinical_data"
@@ -46,53 +45,29 @@ The system provides an easy-to-use interface built with Gradio, allowing users t
 #### **Predictive Features**
 Below are the features used for prediction across all targets:
 
-1. **Pedigree** (0 - 67):
-   Represents the familial history related to fibrotic conditions.
+1. **Pedigree**: Represents the familial history related to fibrotic conditions.
 
-2. **Age at diagnosis** (36.0 - 92.0):
-   Age of the patient at the time of diagnosis. A critical factor as progression and treatment response vary with age.
+2. **Age at diagnosis**: Age of the patient at the time of diagnosis.
 
-3. **FVC (L) at diagnosis** (0.0 - 5.0):
-   Forced vital capacity in liters at the time of diagnosis, reflecting lung function.
+3. **FVC (L) at diagnosis**: Forced vital capacity in liters at the time of diagnosis, reflecting lung function.
 
-4. **FVC (%) at diagnosis** (0.0 - 200.0):
-   Forced vital capacity as a percentage of the expected value for the patient’s age and sex.
+4. **FVC (%) at diagnosis**: Forced vital capacity as a percentage of the expected value for the patient’s age and sex.
 
-5. **DLCO (%) at diagnosis** (0.0 - 200.0):
-   Diffusion capacity for carbon monoxide as a percentage, measuring gas exchange efficiency in the lungs.
+5. **DLCO (%) at diagnosis**: Diffusion capacity for carbon monoxide as a percentage, measuring gas exchange efficiency in the lungs.
 
-6. **RadioWorsening2y** (0 - 3):
-   Radiological assessment of lung deterioration over two years. Higher values indicate significant progression.
+6. **RadioWorsening2y**: Radiological assessment of lung deterioration over two years.
 
-7. **Severity of telomere shortening - Transform 4** (1 - 6):
-   Indicates the degree of telomere shortening.
+7. **Severity of telomere shortening - Transform 4**: Indicates the degree of telomere shortening.
 
-8. **Progressive disease** (0 - 1):
-   Binary variable indicating whether the disease is progressive (1) or stable (0).
+8. **Progressive disease**: Binary variable indicating whether the disease is progressive or stable.
 
-9. **Antifibrotic Drug** (0 - 1):
-   Binary variable representing the use of antifibrotic drugs. 1 indicates use; 0 indicates none.
+9. **Biopsy**: Binary variable indicating whether a biopsy was performed.
 
-10. **Prednisone** (0 - 1):
-    Binary variable reflecting prednisone usage. 1 indicates use; 0 indicates none.
+10. **Genetic mutation studied in patient**: Binary variable indicating the presence of specific genetic mutations.
 
-11. **Mycophenolate** (0 - 1):
-    Binary variable indicating mycophenolate usage. 1 indicates use; 0 indicates none.
+11. **Comorbidities**: Binary variable representing the presence of relevant comorbidities.
 
-12. **FVC (L) 1 year after diagnosis** (0.0 - 5.0):
-    Forced vital capacity in liters one year after diagnosis, used to evaluate changes in lung function.
-
-13. **FVC (%) 1 year after diagnosis** (0.0 - 200.0):
-    Forced vital capacity as a percentage one year after diagnosis.
-
-14. **DLCO (%) 1 year after diagnosis** (0.0 - 200.0):
-    Diffusion capacity for carbon monoxide as a percentage one year after diagnosis.
-
-15. **Genetic mutation studied in patient** (0 - 1):
-    Binary variable indicating the presence of specific genetic mutations. 1 indicates mutation found; 0 indicates none.
-
-16. **Comorbidities** (0 - 1):
-    Binary variable representing the presence of relevant comorbidities. 1 indicates presence; 0 indicates absence.
+12. **Tobacco use**: Binary variable reflecting whether the patient has a history of tobacco use.
 
 ---
 
@@ -144,33 +119,120 @@ Below are the features used for prediction across all targets:
 
 ---
 
+#### **Results**
+
+The performance and feature importance for the prediction targets are detailed below:
+
+##### **Prediction Target: Death**
+
+![Cross-validation Accuracy for Death](Figures/Figure_1.png)
+
+- **Cross-validation Accuracy**:
+  The cross-validation results for "Death" show some variability across folds, but overall, the model achieves consistently high accuracy.
+
+- **Train vs Test Accuracy**:
+  ![Train vs Test Accuracy for Death](Figures/Figure_2.png)
+
+![Feature Importance for Death](Figures/Figure_3.png)
+
+- **Feature Importance**:
+  Features such as "Progressive disease", "DLCO (%) at diagnosis", and "FVC (%) at diagnosis" are the most influential.
+
+![ROC-AUC Curve for Death](Figures/Figure_4.png)
+
+- **ROC-AUC Curve**:
+  The ROC-AUC curve illustrates strong model performance, with an AUC of 0.92.
+
+##### **Prediction Target: Binary Diagnosis**
+
+![Cross-validation Accuracy for Binary Diagnosis](Figures/Figure_5.png)
+
+- **Cross-validation Accuracy**:
+  Variability in cross-validation accuracy is observed, but the model maintains high performance across most folds.
+
+![Train vs Test Accuracy for Binary Diagnosis](Figures/Figure_6.png)
+
+![Feature Importance for Binary Diagnosis](Figures/Figure_7.png)
+
+- **Feature Importance**:
+  Key predictors include "Age at diagnosis", "Pedigree", and "Tobacco use".
+
+![ROC-AUC Curve for Binary Diagnosis](Figures/Figure_8.png)
+
+- **ROC-AUC Curve**:
+  The high AUC value of 0.95 indicates excellent discrimination ability.
+
+##### **Prediction Target: Progressive Disease**
+
+![Cross-validation Accuracy for Progressive Disease](Figures/Figure_9.png)
+
+- **Cross-validation Accuracy**:
+  Accuracy scores across folds highlight variability, but peaks show strong model performance.
+
+- **Train vs Test Accuracy**:
+  ![Train vs Test Accuracy for Progressive Disease](Figures/Figure_10.png)
+
+![Feature Importance for Progressive Disease](Figures/Figure_11.png)
+
+- **Feature Importance**:
+  "DLCO (%) at diagnosis", "Age at diagnosis", and "Pedigree" emerge as the dominant predictors.
+
+![ROC-AUC Curve for Progressive Disease](Figures/Figure_12.png)
+
+- **ROC-AUC Curve**:
+  With an AUC of 0.98, the model demonstrates exceptional predictive power.
+
+##### **Prediction Target: Necessity of Transplantation**
+
+![Cross-validation Accuracy for Necessity of Transplantation](Figures/Figure_13.png)
+
+- **Cross-validation Accuracy**:
+  Cross-validation reveals excellent model accuracy.
+
+![Train vs Test Accuracy for Necessity of Transplantation](Figures/Figure_14.png)
+
+![Feature Importance for Necessity of Transplantation](Figures/Figure_15.png)
+
+- **Feature Importance**:
+  "RadioWorsening2y", "FVC (%) 1 year after diagnosis", and "Comorbidities" are critical.
+
+![ROC-AUC Curve for Necessity of Transplantation](Figures/Figure_16.png)
+
+- **ROC-AUC Curve**:
+  The model achieves an AUC of 1.00.
+
+---
+
 #### **Future Improvements**
 
 - **Optimizing Variable Names**:
-  Review and refine the naming conventions for variables to improve clarity and consistency, facilitating better understanding for medical practitioners and data scientists.
+  Review and refine variable naming conventions for clarity.
 
 - **Improving Model Precision**:
-  Retrain the model with a larger and more diverse dataset, incorporating data from additional patients to enhance accuracy and generalization.
+  Retrain the model with a larger dataset.
 
 - **Identifying Optimal Medical Variables**:
-  Conduct a detailed analysis to identify which medical variables contribute most significantly to prediction accuracy and consider eliminating less relevant ones to simplify the model.
+  Simplify the model by removing less relevant variables.
 
 - **Testing Model Performance with Reduced Variables**:
-  Assess whether the model maintains strong predictive performance with a reduced set of optimized medical variables, which could enhance interpretability and efficiency.
+  Assess predictive performance with a reduced set of variables.
 
 - **Expanding Dataset Diversity**:
-  Incorporate data from different demographics, regions, and clinical conditions to ensure the model performs well across diverse patient groups.
+  Incorporate data from diverse demographics.
 
 - **Adding Longitudinal Data Analysis**:
-  Integrate longitudinal data to capture temporal patterns in disease progression, which could significantly enhance prediction capabilities.
+  Integrate temporal patterns in disease progression.
 
 - **Real-time Model Retraining**:
-  Develop an interface or mechanism for users to upload new patient data and retrain the model seamlessly, keeping it up-to-date with the latest insights.
+  Develop mechanisms for real-time updates.
 
-### Model
+### Associated Space
 
-This Space uses the model available at: [FibroPred Model Repository](https://huggingface.co/amonfortc/FibroPred).
+Check out the interactive demo of this model on Hugging Face Spaces:  
+[![Spaces: FibroPred Demo](https://huggingface.co/datasets/huggingface/badges/raw/main/open-in-space-sm-dark.svg)](https://huggingface.co/spaces/amonfortc/FibroPred)
+
 
 ---
 
 This README provides a comprehensive guide to understanding and using the **FibroPred** predictive system effectively.
+
